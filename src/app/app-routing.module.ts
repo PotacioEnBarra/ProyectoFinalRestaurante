@@ -1,3 +1,4 @@
+import { NuevoAdministradorComponent } from './modules/administrador/nuevo-administrador/nuevo-administrador.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -9,6 +10,7 @@ const routes: Routes = [
   { path: 'registrar-repartidor', component: RegistrarRepartidorComponent},
   { path: 'nuevo-producto', component: NuevoProductoComponent},
   { path: 'registro-usuario', component: RegistroUsuarioComponent},
+  { path: 'reguistro-administrador', component: NuevoAdministradorComponent},
   { path: '', component: LoginComponent}
 ];
 
