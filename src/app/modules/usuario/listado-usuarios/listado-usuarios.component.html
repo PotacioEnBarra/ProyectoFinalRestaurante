@@ -1,0 +1,20 @@
+<p>Usuario en sesion: {{emailUsuarioActual}}</p>
+<h1>Listado de usuarios</h1>
+<table class="table">
+    <thead>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>Direccion</th>
+        <th>E-mail</th>
+        <th>Eliminar</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuariosTodos">
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.telefono}}</td>
+            <td>{{usuario.direccion}}</td>
+            <td>{{usuario.email}}</td>
+            <td><button (click)="deleteUsuario(usuario.key)">Eliminar</button></td>
+        </tr>
+    </tbody>
+</table>

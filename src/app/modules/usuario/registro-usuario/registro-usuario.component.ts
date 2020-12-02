@@ -1,3 +1,5 @@
+import { UsuarioService } from './../usuario.service';
+import { Usuario } from './../usuario.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroUsuarioComponent implements OnInit {
 
-  constructor() { }
+  usuario: Usuario = new Usuario();
+  submitted: boolean = false;
+
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+  }
+
+  saveUsuario(): void {
+    this.usuarioService.create(this.usuario).then(() =>{
+      console.log('Nuevo usuario creado');
+      this.submitted = true;
+    });
+  }
+
+  newUsuario(): void {
+    this.submitted = false;
+    this.usuario = new Usuario();
   }
 
 }

@@ -11,7 +11,12 @@ const routes: Routes = [
   { path: 'nuevo-producto', component: NuevoProductoComponent},
   { path: 'registro-usuario', component: RegistroUsuarioComponent},
   { path: 'reguistro-administrador', component: NuevoAdministradorComponent},
-  { path: '', component: LoginComponent}
+  { path: '', component: LoginComponent},
+  { path: 'login', loadChildren: () => import('./autenticacion/login/login.module').then(m => m.LoginModule) },
+  { path: 'registro', loadChildren: () => import('./autenticacion/registro/registro.module').then(m => m.RegistroModule) },
+  { path: 'login', loadChildren: () => import('./autenticacion/login/login.module').then(m => m.LoginModule) },
+  { path: 'registro', loadChildren: () => import('./autenticacion/registro/registro.module').then(m => m.RegistroModule) }
+
 ];
 
 @NgModule({
