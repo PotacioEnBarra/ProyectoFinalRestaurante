@@ -1,0 +1,23 @@
+<h1>Listado de repartidores</h1>
+<table class="table">
+    <thead>
+        <th>Nombre</th>
+        <th>Cédula</th>
+        <th>Area de trabajo</th>
+        <th>Salario</th>
+        <th>Area</th>
+        <th>Eliminar</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let repartidor of repartidoresTodos">
+            <td>{{repartidor.nombre}}</td>
+            <td>{{repartidor.cedula}}</td>
+            <td>{{repartidor.areaDeTrabajo}}</td>
+            <td>{{repartidor.salario}}</td>
+            <td>{{repartidor.area}}</td>
+            <td>
+                <button (click)="deleteRepartidor(repartidor.key)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
