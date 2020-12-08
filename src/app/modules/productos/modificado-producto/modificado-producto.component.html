@@ -1,0 +1,21 @@
+<button class="btn btn-secondary" (click)="loadDataProductos(productosId)">Cargar datos actuales</button>
+
+<div class="card border-danger mb-3" style="max-width: 20rem;">
+    <div class="card-header">Actualización de datos</div>
+    <div class="card-body">
+        <div class="submit-form">
+            <div *ngIf="conId">
+                <p class="card-text">Modifique los datos</p>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" value="{{objeto.nombre}}" [(ngModel)]="objeto.nombre" name="nombre" />
+                </div>
+                <div class="form-group">
+                    <label for="nit">Nit</label>
+                    <input type="text" class="form-control" value="{{objeto.nit}}" [(ngModel)]="objeto.nit" name="nit" />
+                </div>
+                <button class="btn btn-primary" (click)="updateProductos(productosId, objeto.nombre, objeto.nit)">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>

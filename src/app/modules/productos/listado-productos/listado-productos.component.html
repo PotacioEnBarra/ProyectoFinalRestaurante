@@ -1,0 +1,20 @@
+<p *ngIf="isLogged">Productos en sesión: {{user.id}}</p>
+<h1>Listado de Productos</h1>
+<table class="table">
+    <thead>
+        <th>Nombre</th>
+        <th>Nit</th>
+        <th>Eliminar</th>
+        <th>Actualizar</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let productos of productosTodos">
+            <td>{{productos.nombre}}</td>
+            <td>{{productos.nit}}</td>
+            <td><button class="btn btn-primary" (click)="doDeleteProductos(productos.id)">Eliminar</button></td>
+            <td>
+                <a class="btn btn-primary" [routerLink]="['/modificaProductos/', productos.id]">Modificar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

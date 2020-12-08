@@ -1,0 +1,27 @@
+<div class="card border-secondary mb-3" style="max-width: 20rem;">
+    <div class="card-header">Nuevo Producto</div>
+    <div class="card-body">
+    </div>
+    <div class="submit-form">
+
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="id">Id</label>
+                <input type="number" class="form-control" id="id" required [(ngModel)]="productos.id" name="id" />
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" id="nombre" required [(ngModel)]="productos.nombre" name="nombre" />
+            </div>
+            <div class="form-group">
+                <label for="telefono">NIT</label>
+                <input class="form-control" id="nit" required [(ngModel)]="productos.nit" name="nit" />
+            </div>
+            <button (click)="doCreateproducto(productos)" class="btn btn-primary">Enviar</button>
+        </div>
+        <div *ngIf="submitted">
+            <h4>Enviado correctamente</h4>
+            <button class="btn btn-primary" (click)="newProducto()">Agregar</button>
+        </div>
+    </div>
+</div>
