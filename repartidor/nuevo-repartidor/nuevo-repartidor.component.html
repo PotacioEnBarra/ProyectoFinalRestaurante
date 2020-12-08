@@ -1,43 +1,35 @@
-<div class="card border-danger mb-3" style="max-width: 20rem;">
-    <div class="card-header">Nuevo repartidor</div>
+<div class="card border-secondary mb-3" style="max-width: 20rem;">
+    <div class="card-header">Nuevo Repartidor</div>
     <div class="card-body">
-        <p class="card-text">Ingrese los datos</p>
-        <div class="submit-form">
-            <div *ngIf="!submitted">
-                <div class="form-group">
-                    <label for="id">Id</label>
-                    <input type="number" class="form-control" id="id" required [(ngModel)]="repartidor.id" name="id" />
-                </div>
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input class="form-control" id="nombre" required [(ngModel)]="repartidor.nombre" name="nombre" />
-                </div>
-                <div class="form-group">
-                    <label for="cedula">Cédula</label>
-                    <input type="number" class="form-control" id="cedula" required [(ngModel)]="repartidor.cedula" name="cedula" />
-                </div>
-                <div class="form-group">
-                    <label for="areaDetrabajo">Area de trabajo</label>
-                    <input type="number" class="form-control" id="areaDetrabajo" required [(ngModel)]="repartidor.areaDetrabajo" name="areaDeTrabajo" />
-                </div>
-                <div class="form-group">
-                    <label for="salario">Salario</label>
-                    <input type="number" class="form-control" id="salario" required [(ngModel)]="repartidor.salario" name="salario" />
-                </div>
+    </div>
+    <div class="submit-form">
 
-                <div class="form-group">
-                    <label for="area">Area: </label>
-                    <select name="area" [(ngModel)]="repartidor.area">
-                  <option *ngFor="let area of areasTodas" value='{{area.id}}'>{{area.nombre}}</option>
-                  </select>
-                </div>
-                <button (click)="saveRepartidor() " class="btn btn-primary ">Enviar</button>
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="id">Id</label>
+                <input type="number" class="form-control" id="id" required [(ngModel)]="repartidor.id" name="id" />
             </div>
-
-            <div *ngIf="submitted ">
-                <h4>Enviado correctamente</h4>
-                <button class="btn btn-primary " (click)="newRepartidor()">Agregar</button>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" id="nombre" required [(ngModel)]="repartidor.nombre" name="nombre" />
             </div>
+            <div class="form-group">
+                <label for="cedula">Cedula</label>
+                <input class="form-control" id="cedula" required [(ngModel)]="repartidor.cedula" name="cedula" />
+            </div>
+            <div class="form-group">
+                <label for="areaDeTrabajo">areaDeTrabajo</label>
+                <input class="form-control" id="areaDeTrabajo" required [(ngModel)]="repartidor.areaDeTrabajo" name="areaDeTrabajo" />
+            </div>
+            <div class="form-group">
+                <label for="salario">Salario</label>
+                <input class="form-control" id="salario" required [(ngModel)]="repartidor.salario" name="salario" />
+            </div>
+            <button (click)="doCreateRepartidor(repartidor)" class="btn btn-primary">Enviar</button>
+        </div>
+        <div *ngIf="submitted">
+            <h4>Enviado correctamente</h4>
+            <button class="btn btn-primary" (click)="newRepartidor()">Agregar</button>
         </div>
     </div>
 </div>
