@@ -1,53 +1,79 @@
+import { Repartidor } from './repartidor.model';
+import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Area, Repartidor } from './repartidor.model';
-import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RepartidorService {
-  private dbPath = '/repartidores';
-  private dbPathAreas = '/areas';
-  repartidorRef: AngularFireList<Repartidor> = null;
-  areasRef: any;
+export class UsuarioService {
 
-  constructor(private db: AngularFireDatabase) {
-    this.repartidorRef = db.list(this.dbPath);
-    this.areasRef = db.list(this.dbPathAreas);
+  repartidor: Repartidor;
+  repartidorPrueba: any;
+  idURL: string;
 
-    const areasRefe = db.database.ref('areas');
-    areasRefe.set([
-      {
-        id: 1,
-        nombre: 'Norte'
-      },
-      {
-        id: 2,
-        nombre: 'Sur'
-      },
-      {
-        id: 3,
-        nombre: 'centro'
-      }
-    ]);
-   }
+  constructor(private db: AngularFireDatabase, private afs: AngularFirestore, private route: Router) {
+    // esto permite que se cree la collección categorias
+    // con dos documentos de id:1 e id:2f
+  }
 
-   getAll(): AngularFireList<Repartidor> {
-        return this.repartidorRef;
-      }
-    getAllAreas(): AngularFireList<Area>{
-      return this.areasRef;
-    }
-      create(repartidor: Repartidor): any {
-        return this.repartidorRef.push(repartidor);
-      }
-      update(key: string, value: any): Promise<void> {
-        return this.repartidorRef.update(key, value);
-      }
-      delete(key: string): Promise<void> {
-        return this.repartidorRef.remove(key);
-      }
-      deleteAll(): Promise<void> {
-        return this.repartidorRef.remove();
-      }
+
+  getDatosRepartidor(): Observable<any> {
+    const tutRef = this.afs.doc('repartidor/' + this.idURL);
+    return new Observable((o) => {
+      setTimeout(() => {
+        o.next(tutRef);
+      }, 1000);
+    });
+  }
+  deleteRepartidorOne(reparKey) {
+    return this.afs.collection('repar').doc(reparKey).delete();
+  }
+
+  getAllRepartidores() {
+    return this.afs.collection('repartidor').snapshotChanges();
+  }
+
+  async updateOneRepartidor(idr, nombrer, cedular, areaDeTrabajor, salarior) {
+    this.afs.doc('usuario/' + idr).update(
+      {
+        nombre: nombrer,
+        cedula: cedular,
+        areaDeTrabajo: areaDeTrabajor,
+        salario: salarior
+      });
+  }
+
+  createRepartidor(repartidor: Repartidor): any {
+    return this.afs.collection('repartidor').add(
+      {
+        nombre: repartidor.nombre,
+        cedula: repartidor.cedula,
+        areaDeTrabajo: repartidor.areaDeTrabajo,
+        salario: repartidor.salario
+      });
+  }
+
+  loadRepartidor(id: string) {
+    this.idURL = id;
+    const repartidores = this.afs.doc('repartidor/' + id).valueChanges();
+    repartidores.subscribe(data => {
+      this.repartidorPrueba = data;
+    });
+    return this.repartidorPrueba;
+  }
+
+
+  deleteRepartidor(repartidorId: string) {
+    return this.afs.collection('repartidor').doc(repartidorId).delete();
+  }
+
+  deleteAllRepartidor(): Promise<void> {
+    // return this.clientesRef.remove();
+    return null;
+  }
 }
+
+

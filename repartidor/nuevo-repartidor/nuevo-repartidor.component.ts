@@ -1,35 +1,30 @@
+import { Repartidor } from './../repartidor.model';
 import { Component, OnInit } from '@angular/core';
-import { Repartidor } from '../repartidor.model';
-import { RepartidorService } from '../repartidor.service';
+import { RepartidorService } from './../repartidor.service';
 
 @Component({
   selector: 'app-nuevo-repartidor',
   templateUrl: './nuevo-repartidor.component.html',
   styleUrls: ['./nuevo-repartidor.component.css']
 })
-export class NuevoRepartidorComponent implements OnInit {
+export class RegistroRepartidorComponent implements OnInit {
 
-  repartidor: Repartidor = new Repartidor();
-  areasTodas: any;
-  submitted: boolean = false;
+  repartidor: Repartidor = new Repartidor();
+  submitted = false;
 
-  constructor(private repartidorService: RepartidorService) { 
-    this.areasTodas = this.repartidorService.areasRef;
-    repartidorService.areasRef.valueChanges().susbscribe(areas =>
-      {this.areasTodas = areas});
+  constructor(private repartidorService: RepartidorService) { }
+
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {
+  doCreateRepartidor(repartidor: Repartidor): void {
+    this.repartidorService.createUsuario(this.repartidor);
+    this.submitted = true;
   }
-  saveRepartidor(): void {
-    this.repartidorService.create(this.repartidor).then(() => {
-      console.log('Nuevo cliente creado');
-      this.submitted = true;
-    });
+
+  newRepartidor(): void {
+    this.submitted = false;
   }
-  newRepartidor(): void {
-    this.submitted = false;
-    this.repartidor = new Repartidor();
-  }
 
 }
+

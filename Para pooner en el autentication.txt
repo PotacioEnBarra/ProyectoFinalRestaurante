@@ -1,0 +1,6 @@
+Para poner el autentication 
+
+getRepartidorActual() {
+    let repar = this.afAuth.currentUser;
+    return repar;
+  }
