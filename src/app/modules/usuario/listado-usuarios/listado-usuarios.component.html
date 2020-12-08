@@ -1,4 +1,4 @@
-<p>Usuario en sesion: {{emailUsuarioActual}}</p>
+<p *ngIf="isLogged">Usuario en sesión: {{user.email}}</p>
 <h1>Listado de usuarios</h1>
 <table class="table">
     <thead>
@@ -7,6 +7,7 @@
         <th>Direccion</th>
         <th>E-mail</th>
         <th>Eliminar</th>
+        <th>Actualizar</th>
     </thead>
     <tbody>
         <tr *ngFor="let usuario of usuariosTodos">
@@ -14,7 +15,10 @@
             <td>{{usuario.telefono}}</td>
             <td>{{usuario.direccion}}</td>
             <td>{{usuario.email}}</td>
-            <td><button (click)="deleteUsuario(usuario.key)">Eliminar</button></td>
+            <td><button class="btn btn-primary" (click)="doDeleteUsuario(usuario.id)">Eliminar</button></td>
+            <td>
+                <a class="btn btn-primary" [routerLink]="['/modificaUsuario/', usuario.id]">Modificar</a>
+            </td>
         </tr>
     </tbody>
 </table>
