@@ -1,3 +1,5 @@
+import { Administrador } from './../administrador.model';
+import { AdministradorService } from './../administrador.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevoAdministradorComponent implements OnInit {
 
-  constructor() { }
+  administrador: Administrador = new Administrador();
+  submitted: boolean = false;
 
-  ngOnInit(): void {
-  }
+
+
+    constructor(private administradorService: AdministradorService) {}
+
+    ngOnInit(): void {
+    }
+
+    saveAdministrador(): void {
+      this.administradorService.createAdministrador(this.administrador).then(() => {
+        console.log('Nuevo administrador creado');
+        this.submitted = true;
+      });
+    }
+    newAdministrador(): void {
+      this.submitted = false;
+      this.administrador = new Administrador();
+    }
+
 
 }
