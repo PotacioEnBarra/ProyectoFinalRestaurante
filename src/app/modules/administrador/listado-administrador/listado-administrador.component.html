@@ -1,5 +1,5 @@
-<p>
-    Usuario en sesion: {{emailUsuarioActual}}</p>
+<p *ngIf="isLogged">
+    Administrador en sesion: {{admin.Email}}</p>
 <h1>
     Listado de administrador</h1>
 <table class="table">
@@ -8,6 +8,8 @@
         <th>Telefono</th>
         <th>Direccion</th>
         <th>Email</th>
+        <th>Eliminar</th>
+        <th>Actualizar</th>
     </thead>
     <tbody>
         <tr *ngFor="let administrador of administradorTodos">
@@ -17,6 +19,9 @@
             <td>{{administrador.Email}}</td>
             <td>
                 <button class="btn btn-primary" (click)="doDeleteAdminstrador(administrador.id)">Eliminar</button>
+            </td>
+            <td>
+                <a class="btn btn-primary" [routerLink]="['/modificar-adminisrador/', administrador.id]">Modificar</a>
             </td>
         </tr>
     </tbody>

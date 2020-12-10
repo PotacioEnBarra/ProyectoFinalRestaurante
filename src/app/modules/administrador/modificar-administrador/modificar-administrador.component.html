@@ -1,0 +1,29 @@
+<button class="btn btn-secondary" (click)="loadDataAdministrador(administradorId)">Cargar datos actuales</button>
+
+<div class="card border-danger mb-3" style="max-width: 20rem;">
+    <div class="card-header">Actualización de datos</div>
+    <div class="card-body">
+        <div class="submit-form">
+            <div *ngIf="conId">
+                <p class="card-text">Modifique los datos</p>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" value="{{objeto.nombre}}" [(ngModel)]="objeto.nombre" name="nombre" />
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Telefono</label>
+                    <input type="text" class="form-control" value="{{objeto.telefono}}" [(ngModel)]="objeto.telefono" name="telefono" />
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class="form-control" value="{{objeto.direccion}}" [(ngModel)]="objeto.direccion" name="direccion" />
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="text" class="form-control" value="{{objeto.email}}" [(ngModel)]="objeto.email" name="email" />
+                </div>
+                <button class="btn btn-primary" (click)="updateAdministrador(administradorId, objeto.nombre, objeto.telefono, objeto.direccion, objeto.email)">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>

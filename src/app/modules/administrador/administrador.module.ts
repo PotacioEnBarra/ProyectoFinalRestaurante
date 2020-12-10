@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { NuevoAdministradorComponent } from './nuevo-administrador/nuevo-administrador.component';
 import { ListadoAdministradorComponent } from './listado-administrador/listado-administrador.component';
 import { AdministradorService } from './administrador.service';
+import { ModificarAdministradorComponent } from './modificar-administrador/modificar-administrador.component';
 
 
 
 @NgModule({
-  declarations: [NuevoAdministradorComponent, ListadoAdministradorComponent],
+  declarations: [NuevoAdministradorComponent, ListadoAdministradorComponent, ModificarAdministradorComponent,RouterModule],
   imports: [
     CommonModule,
     FormsModule,
