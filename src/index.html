@@ -1,13 +1,219 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>RestauranteVirtual</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
+
+    <!-- Ionic icons-->
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images//tenderosk.png" />
+
+    <title>Tenderos K</title>
 </head>
+
 <body>
-  <app-root></app-root>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <img src="assets/images/tenderosk.png" class="logo-brand" alt="logo">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <img src="assets/images/menu.svg">
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-secondary" type="button" href="index.html">
+                        Home
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Cliente
+                        </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Cliente nuevo</a>
+                                <a class="dropdown-item" href="#">Listado clientes</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Repartidor
+                    </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Repartidor nuevo</a>
+                                <a class="dropdown-item" href="#">Listado repartidores</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Productos
+                    </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Producto nuevo</a>
+                                <a class="dropdown-item" href="#">Listado productos</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Administrador
+                    </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Administrador nuevo</a>
+                                <a class="dropdown-item" href="#">Listado administradores</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-secondary" type="button" href="#">
+                        Registrarse
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-secondary" type="button" href="#">
+                        Iniciar Sesion
+                      </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="portafolio">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="assets/images/carrusel.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="assets/images/carrusel2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="assets/images/carrusel3.jpg" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <section id="portfolio">
+            <div class="container-fluid">
+                <div class="content-center">
+                    <h2>Trabajamos para que tengas la
+                        <h1>mejor experiencia.</h1>
+                    </h2>
+                    <br>
+                    <p>Tenderos K, disfruta de nuestra variedad de platos de tus restaurantes mas cercanos. <br>!Lo llevamos hasta tu casa!</p>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="assets/images/card1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Hamburguesas</h5>
+                            <p class="card-text">Disfruta de nuestra sensacional hamburguesa con tocineta y queso americano.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">ultima actualizacion, hace 3 min</small>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="assets/images/card2.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Ensaladas</h5>
+                            <p class="card-text">Nuestras deliciosas ensaladas preparadas con los frutos mas frescos.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">ultima actualizacion, hace 6 min</small>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="assets/images/card3.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Parrillada</h5>
+                            <p class="card-text">Nuestra parrillada hecha con las carnes mas finas.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">ultima actualizacion, hace 1 min</small>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="jumbotron">
+                    <h1 class="display-3">Contactanos</h1>
+                    <p class="lead">Encuentranos en nuestras redes sociales Instagram, Twitter, Youtube, Facebook como Tenderos K</p>
+                    <hr class="my-4">
+                    <p>Los links directos los puedes encontrar al final de la pagina.</p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Team Tenderos K</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bgDark">
+            <div class="container">
+                <ul class="list-inline">
+                    <li class="list-inline-item footer-menu"><a href="index.html">Home</a></li>
+                    <li class="list-inline-item footer-menu"><a href="#">Contacto</a></li>
+                </ul>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#"><img src="assets/images/instagram.svg" class="img-fluid"></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><img src="assets/images/twitter.svg" class="img-fluid"></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><img src="assets/images/youtube.svg" class="img-fluid"></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><img src="assets/images/facebook.svg" class="img-fluid"></a>
+                    </li>
+                </ul>
+                <h6>@Team Tenderos K</h6>
+            </div>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
 </body>
+
 </html>
