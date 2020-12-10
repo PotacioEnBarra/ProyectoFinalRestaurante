@@ -19,15 +19,12 @@ export class NuevoAdministradorComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    saveAdministrador(): void {
-      this.administradorService.createAdministrador(this.administrador).then(() => {
-        console.log('Nuevo administrador creado');
-        this.submitted = true;
-      });
+    doCreateAdministrador(administrador:Administrador): void {
+      this.administradorService.createAdministrador(this.administrador);
+      this.submitted=true;
     }
     newAdministrador(): void {
       this.submitted = false;
-      this.administrador = new Administrador();
     }
 
 

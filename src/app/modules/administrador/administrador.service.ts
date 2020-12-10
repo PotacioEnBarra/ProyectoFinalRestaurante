@@ -1,41 +1,79 @@
+import { Router } from '@angular/router';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Administrador } from './administrador.model';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdministradorService {
 
-  dbPhat='/administrador';
+  administrador: Administrador;
+  administradorPrueba: any;
+  idUrl: String;
 
-  administradorRef: AngularFireList<Administrador>=null;
 
-  constructor(private db:AngularFireDatabase) {
-    this.administradorRef=db.list(this.dbPhat);
+  constructor(private db: AngularFireDatabase, private afs: AngularFirestore, private route: Router) { }
+
+  getDatosAdministrador(): Observable<any> {
+    const tuRef = this.afs.doc('administrador/' + this.idUrl);
+    return new Observable((o) => {
+      setTimeout(() => {
+        o.next(tuRef);
+      }, 1000);
+    });
   }
 
-    getAllAdministrador(): AngularFireList<Administrador> {
-      return this.administradorRef;
-    }
+  deleteAdministradorOne(administradorKey){
+    return this.afs.collection('admin').doc(administradorKey).delete();
+  }
 
-    createAdministrador(Administrador: Administrador): any {
-      return this.administradorRef.push(Administrador);
-    }
+  getAllAdministrador(){
+    return this.afs.collection('administrador').snapshotChanges();
+  }
 
-    updateAdministrador(key: string, value: any): Promise<void> {
-      return this.administradorRef.update(key, value);
-    }
+  async updateOneAdministrdor(idA,nombreA,telefonoA,direccionA,emailA){
+    this.afs.doc('administrador/'+idA).update({
+      nombre:nombreA,
+      telefono:telefonoA,
+      direccion:direccionA,
+      email:emailA
+    });
+  }
 
-    deleteAdministrador(key: string): Promise<void> {
-      return this.administradorRef.remove(key);
-    }
+  createAdministrador(administrador:Administrador):any{
+    return this.afs.collection('administrador').add(
+      {
+        nombre: administrador.nombre,
+        telefono:administrador.telefono,
+        direccion:administrador.direccion,
+        email:administrador.email
+      }
+    );
+  }
 
-    deleteAll(): Promise<void> {
-      return this.administradorRef.remove();
-    }
-    deleteOne(administrador:Administrador):Promise<void>{
-      return this.administradorRef.remove(administrador.key);
-    }
+  loadAdministrador(id:String){
+    this.idUrl=id;
+    const administradores=this.afs.doc('usuario/'+id).valueChanges();
+    administradores.subscribe(data=>{
+      this.administradorPrueba=data;
+    });
+    return this.administradorPrueba;
+  }
+
+  deleteAdministrador(administradorId: string){
+    return this.afs.collection('usuario').doc(administradorId).delete();
+  }
+
+  deleteAllAdministrador(): Promise<void>{
+    return null;
+  }
+
+
+
+
+
 
 }

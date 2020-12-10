@@ -25,4 +25,9 @@ export class AutenticacionService {
     let user = this.afAuth.currentUser;
     return user;
   }
+
+  getAdministradorActual() {
+    let admin = this.afAuth.currentUser;
+    return admin;
+  }
 }
