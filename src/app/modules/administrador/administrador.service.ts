@@ -34,7 +34,7 @@ export class AdministradorService {
     return this.afs.collection('administrador').snapshotChanges();
   }
 
-  async updateOneAdministrdor(idA,nombreA,telefonoA,direccionA,emailA){
+  async updateOneAdministrador(idA,nombreA,telefonoA,direccionA,emailA){
     this.afs.doc('administrador/'+idA).update({
       nombre:nombreA,
       telefono:telefonoA,

@@ -27,7 +27,7 @@
             <label for="Email">Email</label>
             <input type="number" class="form-control" id="Email" required [(ngModel)]="administrador.Email" name="Email" />
         </div>
-        <button (click)="saveAdministrador()" class="btn btn-primary">Enviar</button>
+        <button (click)="doCreateAdministrador()" class="btn btn-primary">Enviar</button>
     </div>
 
     <div *ngIf="submitted">
