@@ -1,0 +1,23 @@
+<p>
+    Usuario en sesion: {{emailUsuarioActual}}</p>
+<h1>
+    Listado de administrador</h1>
+<table class="table">
+    <thead>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>Direccion</th>
+        <th>Email</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let administrador of administradorTodos">
+            <td>{{administrador.nombre}}</td>
+            <td>{{administrador.Telefono}}</td>
+            <td>{{administrador.Direccion}}</td>
+            <td>{{administrador.Email}}</td>
+            <td>
+                <button (click)="deleteAdministrador(administrador.key)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

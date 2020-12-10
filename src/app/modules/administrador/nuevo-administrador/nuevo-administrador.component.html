@@ -1,1 +1,37 @@
-<p>nuevo-administrador works!</p>
+<div class="card border-danger mb-3" style="max-width: 20rem;">
+    <div class="card-header">Nuevo Administrador</div>
+    <div class="card-body">
+        <p class="card-text">Ingrese los datos</p>
+    </div>
+</div>
+
+<div class="submit-form">
+    <div *ngIf="!submitted">
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input type="number" class="from-control" id="id" required ngModel [(ngModel)]="administrador.id" name="id" />
+        </div>
+        <div class="from-group">
+            <label for="nombre">Nombre</label>
+            <input class="form-control" id="nombre" required [(ngModel)]="administrador.nombre" name="nombre" />
+        </div>
+        <div class="from-group">
+            <label for="Telefono">Telefono</label>
+            <input type="number" class="form-control" id="Telefono" required [(ngModel)]="administrador.Telefono" name="Telefono" />
+        </div>
+        <div class="from-group">
+            <label for="Direccion">Direccion</label>
+            <input type="number" class="form-control" id="Direccion" required [(ngModel)]="administrador.Direccion" name="Direccion" />
+        </div>
+        <div class="from-group">
+            <label for="Email">Email</label>
+            <input type="number" class="form-control" id="Email" required [(ngModel)]="administrador.Email" name="Email" />
+        </div>
+        <button (click)="saveAdministrador()" class="btn btn-primary">Enviar</button>
+    </div>
+
+    <div *ngIf="submitted">
+        <h4>Enviado correctamente</h4>
+        <button class="btn btn-primary" (click)="newAdministrador()">Agregar</button>
+    </div>
+</div>
